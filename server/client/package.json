@@ -1,0 +1,57 @@
+{
+  "name": "SkateCompare",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "gulp-cli": "^2.0.1",
+    "react-ga": "^2.5.3",
+    "react-scripts": "0.6.1"
+  },
+  "devDependenciesComment": {
+    "semantic-ui": "^2.3.1"
+  },
+  "dependencies": {
+    "cross-fetch": "^2.2.2",
+    "dotenv": "latest",
+    "gulp": "^3.9.1",
+    "history": "^4.7.2",
+    "lodash": "^4.17.5",
+    "marked": "^0.3.6",
+    "query-string": "^6.1.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-image-magnify": "^2.7.0",
+    "react-input-range": "latest",
+    "react-load-script": "latest",
+    "react-rangeslider": "^2.2.0",
+    "react-redux": "latest",
+    "react-router": "latest",
+    "react-router-dom": "latest",
+    "react-scripts": "latest",
+    "redux": "latest",
+    "redux-devtools": "^3.4.1",
+    "redux-devtools-dock-monitor": "^1.1.3",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-devtools-log-monitor": "^1.4.0",
+    "redux-logger": "latest",
+    "redux-persist-2": "latest",
+    "redux-thunk": "latest",
+    "remote-redux-devtools": "latest",
+    "semantic-ui-react": "^0.79.0",
+    "superagent": "^2.3.0",
+    "superagent-promise": "^1.1.0"
+  },
+  "scripts": {
+    "start": "set PORT=4040 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3000",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

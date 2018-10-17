@@ -1,0 +1,28 @@
+{
+  "name": "eskate-compare",
+  "version": "1.0.0",
+  "description": "MERN eskate compare",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint --fix src/",
+    "heroku:add": "heroku git:remote -a",
+    "deploy:heroku": "git subtree push --prefix server heroku master"
+  },
+  "engines": {
+    "node": "8.11.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EskateCompare/eskatecompare"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Michael Valentine & Warren Phen",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.17.5",
+    "react-ga": "^2.5.3"
+  },
+  "dependencies": {}
+}

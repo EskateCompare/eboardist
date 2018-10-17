@@ -1,0 +1,47 @@
+{
+  "name": "skate-compare",
+  "version": "1.0.0",
+  "description": "comparing eboards",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js && remotedev  --hostname=localhost --port=8000",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "ISC",
+  "dependencies": {
+    "async-while": "latest",
+    "body-parser": "1.15.0",
+    "cors": "2.7.1",
+    "dotenv": "latest",
+    "ejs": "2.4.1",
+    "errorhandler": "1.4.3",
+    "express": "4.13.4",
+    "express-jwt": "3.3.0",
+    "express-session": "1.13.0",
+    "jsonwebtoken": "7.1.9",
+    "javascript-unwind": "latest",
+    "lodash": "latest",
+    "method-override": "2.3.5",
+    "methods": "1.1.2",
+    "mongoose": "latest",
+    "mongoose-unique-validator": "latest",
+    "morgan": "1.7.0",
+    "nodemon": "latest",
+    "request": "2.69.0",
+    "slug": "0.9.1",
+    "underscore": "1.8.3",
+    "fast-csv": "latest",
+    "dottie": "latest",
+    "money": "latest",
+    "axios": "latest"
+  },
+  "devDependencies": {
+    "react-ga": "^2.5.3"
+  }
+}
