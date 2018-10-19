@@ -40,7 +40,7 @@ export default (state = defaultState, action) => {
     }
 
     if (state.user.impressions.length > 0) {
-      productExists = state.user.impressions.find((impression) => (impression.name === action.payload.product))       
+      productExists = state.user.impressions.find((impression) => (impression.name === action.payload.product))
     }
 
     product.name = action.payload.product
@@ -49,15 +49,20 @@ export default (state = defaultState, action) => {
 
     if (productExists) {
       let impressionIdExists;
-      if (productExists.impressions.length > 0) {
+      //if (productExists.impressions.length > 0) {
         impressionIdExists = productExists.impressions.find((impression) => (impression.impressionId === action.payload.impressionId))
         if (impressionIdExists) {
           const index = productExists.impressions.findIndex((impression) => (impression.impressionId === action.payload.impressionId))
-          productExists.impressions[index] = impression
+          if (impressionIdExists.change === impression.change) {
+            (productExists.impressions).splice(index, 1);
+          } else {
+            productExists.impressions[index] = impression
+          }
         } else {
           productExists.impressions.push(impression)
+          console.log('productExists',productExists);
         }
-      }
+      //}
     } else {
       product.impressions.push(impression)
       impressionsArray.push(product)
@@ -77,7 +82,7 @@ export default (state = defaultState, action) => {
 
       // product: [
       //   product: action.payload.prodcut
-      //   impressions: 
+      //   impressions:
       //     impressionId: impressionId
       //     change: change
       // ]

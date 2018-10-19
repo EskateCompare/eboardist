@@ -93,7 +93,7 @@ export default class ReviewList extends Component {
     }
 
     if (impressionExists && impressionExists.change === eventObj.change) {
-      return
+      //return
     }
 
     const { fetchPostImpressions, slug, addUserImpression } = this.props;
@@ -103,8 +103,8 @@ export default class ReviewList extends Component {
         'product' : slug,
         'impression' : target.customId,
         'change' : {
-          'yes' : (target.value === 'yes') ? 1 : (impressionExists && impressionExists.change=== 'yes') ? -1 : 0,
-          'no' : (target.value === 'no') ? 1 : (impressionExists && impressionExists.change === 'no') ? -1 : 0,
+          'yes' : (target.value === 'yes') ? ((impressionExists && impressionExists.change==='yes') ? -1 : 1) : (impressionExists && impressionExists.change=== 'yes') ? -1 : 0,
+          'no' : (target.value === 'no') ? ((impressionExists && impressionExists.change==='no' ? -1 : 1)) : (impressionExists && impressionExists.change === 'no') ? -1 : 0,
         }
       }
 
@@ -124,7 +124,7 @@ export default class ReviewList extends Component {
     if (impressions.length === 0) {
       return
     }
-    
+
     const renderImpressions = impressions.map((impression, index) => {
       let yesVotes = impression.votes && impression.votes.yes ? impression.votes.yes : 0;
       let noVotes = impression.votes && impression.votes.no ? impression.votes.no : 0;

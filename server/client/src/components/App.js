@@ -46,7 +46,7 @@ const mapDispatchToProps = dispatch => ({
 class App extends React.Component {
   componentDidMount() {
     // console.log(this.props, 'appstart')
-    localStorage.clear();
+    //localStorage.clear();
     // console.log(localStorage);
   }
 
