@@ -129,6 +129,22 @@ export default class ReviewList extends Component {
       let yesVotes = impression.votes && impression.votes.yes ? impression.votes.yes : 0;
       let noVotes = impression.votes && impression.votes.no ? impression.votes.no : 0;
       let content = impression.impression && impression.impression.content ? impression.impression.content : "";
+
+      const { impressions, didUserImpression } = this.state;
+      let impressionExists;
+      console.log('didUserImpression',didUserImpression);
+      if (didUserImpression && impressions) {
+        console.log('impression',impression);
+         impressionExists = impressions.find((_impression) => _impression.impressionId == impression.impression.customId)
+      }
+      let vote = null;
+      console.log('impressionExists',impressionExists);
+      if (impressionExists) {
+        console.log('impressionExists',impressionExists);
+        vote = impressionExists.change==='yes' ? "yes" : "no";
+      }
+
+
       return (
         <Grid.Column>
           <Grid style={{ background: '#f8f8f9', borderRadius: '.28571429rem'}} columns={3} celled>
@@ -140,8 +156,8 @@ export default class ReviewList extends Component {
               </Grid.Column>
               <Grid.Column width={3} style={{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '0'}}>
                 <Button.Group icon vertical>
-                  <Button basic icon='angle up' onClick={this.handleImpression} customId={impression.impression.customId} value='yes'></Button>
-                  <Button basic icon='angle down' onClick={this.handleImpression} customId={impression.impression.customId} value='no'></Button>
+                  <Button basic={!(vote==="yes")} icon='angle up' onClick={this.handleImpression} customId={impression.impression.customId} value='yes' color='green'></Button>
+                  <Button basic={!(vote==="no")} icon='angle down' onClick={this.handleImpression} customId={impression.impression.customId} value='no' color='red'></Button>
                 </Button.Group>
               </Grid.Column>
           </Grid>

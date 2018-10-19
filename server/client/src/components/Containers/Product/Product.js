@@ -9,7 +9,7 @@ import { Dimmer, Header, Icon, Grid, Image, Divider, Label,  Loader, Segment } f
 export default class Product extends React.Component {
   componentDidMount() {
     const { fetchProduct, match, fetchImpressions, product } = this.props;
-    
+
     fetchProduct(match.params.slug);
   }
 
@@ -18,7 +18,7 @@ export default class Product extends React.Component {
 
     if (prevProps.product !== product) {
       document.title = `eboardist | ${product.product.name}`
-    } 
+    }
   }
 
   render() {
@@ -28,8 +28,8 @@ export default class Product extends React.Component {
 
     if (this.props.fetching) {
       return (
-        <Segment style={{padding: '10em 0', border: 'none', margin: '64px 0'}} vertical size='massive'>
-          <Dimmer inverted active>
+        <Segment style={{padding: '10em 0', border: 'none', margin: '64px 0', 'background-color' : '#fafafa'}} vertical size='massive'>
+          <Dimmer inverted active style={{'background-color' : '#fafafa'}}>
             <Loader size='massive'>Loading</Loader>
           </Dimmer>
         </Segment>

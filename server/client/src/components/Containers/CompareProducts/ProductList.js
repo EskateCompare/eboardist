@@ -44,7 +44,7 @@ export default class ProductList extends Component {
 
     if (prevProps.filterState !== filterState) {
       fetchProducts(filterState);
-    } 
+    }
   }
 
   handleSortBy(e, value) {
@@ -62,7 +62,7 @@ export default class ProductList extends Component {
 
   renderListItems() {
     const { products } = this.props.products;
- 
+
     const listItems = products.map((product, index) =>
       <ListItem key={index} product={product} rank={index + 1}/>
     );
@@ -86,7 +86,7 @@ export default class ProductList extends Component {
     if (this.props.fetching) {
       return (
         <Segment style={{padding: '10em 0', margin: '64px 0'}} vertical size='huge'>
-          <Dimmer inverted active>
+          <Dimmer inverted active style={{'background-color' : '#fafafa'}}>
             <Loader size='massive'>Loading</Loader>
           </Dimmer>
         </Segment>
