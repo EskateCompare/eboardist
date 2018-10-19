@@ -62,7 +62,7 @@ export default class ProductList extends Component {
 
   renderListItems() {
     const { products } = this.props.products;
-
+    if (!products) return;
     const listItems = products.map((product, index) =>
       <ListItem key={index} product={product} rank={index + 1}/>
     );
@@ -82,6 +82,7 @@ export default class ProductList extends Component {
     const { sortIcon, filterText } = this.state;
     const renderedListItems = this.renderListItems();
     const renderedDropdownItems = this.renderDropdownItems();
+    //const products = this.props.products ?
 
     if (this.props.fetching) {
       return (
@@ -90,9 +91,9 @@ export default class ProductList extends Component {
             <Loader size='massive'>Loading</Loader>
           </Dimmer>
         </Segment>
+
       )
     }
-
     return (
       <div>
         <Grid>
@@ -125,7 +126,8 @@ export default class ProductList extends Component {
           </Table.Body>
 
         </Table>
-        <Button fluid content='Load More' onClick={this.appendListItems}/>
+         <Button loading={this.props.products.fetchingMore} fluid disabled={(this.props.products.products.length >= this.props.totalMatching)} content={(this.props.products.products.length < this.props.totalMatching) ? 'Load More' : 'The End - 😔'} onClick={this.appendListItems}/>
+
       </div>
     );
   }

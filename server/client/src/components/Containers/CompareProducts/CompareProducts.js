@@ -43,7 +43,7 @@ export default class CompareProducts extends Component {
             <Filter filter={filter} history={history} fetchProducts={fetchProducts} onFilterChange={onFilterChange} filterState={filterState} fetchFilter={fetchFilter} updateField={updateField} brandSearch={brandSearch} />
           </Grid.Column>
           <Grid.Column width={12}>
-            <ProductList fetching={fetching} products={products} fetchProducts={fetchProducts} onFilterChange={onFilterChange} onSortBy={onSortBy} onSortDirection={onSortDirection} filterState={filterState} incrementPage={incrementPage}/>
+            <ProductList fetching={fetching} products={products} totalMatching={totalMatching} fetchProducts={fetchProducts} onFilterChange={onFilterChange} onSortBy={onSortBy} onSortDirection={onSortDirection} filterState={filterState} incrementPage={incrementPage}/>
           </Grid.Column>
         </Grid>
       </div>

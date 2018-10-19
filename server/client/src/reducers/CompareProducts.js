@@ -1,6 +1,7 @@
 const defaultState = {
   products: {
-    products: []
+    products: [],
+    fetchingMore: false
   },
   filter: {
     stats: {
@@ -42,9 +43,18 @@ const defaultState = {
 export default (state = defaultState, action) => {
   switch(action.type) {
     case 'REQUEST_PRODUCTS':
+    if (state.filterState.page > 1) {
       return Object.assign({}, state, {
-        fetching: true
-    })
+        products: {
+          ...state.products,
+          fetchingMore: true
+        }
+      })
+    } else {
+        return Object.assign({}, state, {
+          fetching: true
+        })
+    }
     case 'FETCH_PRODUCTS_ERROR':
       return Object.assign({}, state, {
         error: action.payload
@@ -55,8 +65,8 @@ export default (state = defaultState, action) => {
         return Object.assign({}, state, {
           products: {
             products: appendedArray,
-          },
-          fetching: false
+            fetchingMore: false
+          }
         })
       }
       return Object.assign({}, state, {
@@ -81,7 +91,7 @@ export default (state = defaultState, action) => {
     })
     case 'REQUEST_FILTER':
       return Object.assign({}, state, {
-        fetching: true
+        //fetching: true
     })
     case 'FETCH_FILTER_ERROR':
       return Object.assign({}, state, {
@@ -90,7 +100,7 @@ export default (state = defaultState, action) => {
     case 'RECEIVE_FILTER':
       return Object.assign({}, state, {
         filter: action.payload,
-        fetching: false
+        //fetching: false
     })
     case 'ON_FILTER_CHANGE':
       const { payload } = action;
