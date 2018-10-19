@@ -44,7 +44,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    document.title = 'eboardist'
+    document.title = 'Eboardist - Find Your Pefect eBoard'
   }
 
   handleOnBoardTypeSelect(e, target) {
@@ -61,6 +61,7 @@ class Home extends Component {
   }
 
   handleNavClick(event, data) {
+    console.log('event',event)
     this.props.onClearFilter();
     this.props.onFilterChange({ [data.type]: data.name, checked: true });
   }
@@ -93,7 +94,8 @@ class Home extends Component {
     const menuLinkStyle = {'align-self' : 'center'}
 
     return (
-      <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+    //  <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+    <div>
         <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
@@ -106,8 +108,8 @@ class Home extends Component {
             style={{ minHeight: 700, padding: '0em 0em', backgroundSize: 'cover', backgroundImage: "url('https://i.pinimg.com/originals/95/17/2c/95172c428ff98f0ec83d3e9679a863d5.jpg')" }}
             vertical
           >
-            <Menu
-              fixed={this.state.fixed ? 'top' : null}
+
+            <Menu stackable
               inverted={this.state.fixed}
               pointing={!this.state.fixed}
               secondary={!this.state.fixed}
@@ -219,8 +221,8 @@ class Home extends Component {
             </Grid>
           </Container>
         </Segment>
-
-      </Responsive>
+        </div>
+      //</Responsive>
     )
   }
 }

@@ -52,7 +52,7 @@ class GlobalFooter extends Component {
         content: content
       }
     }
-    
+
     if (email || content) {
      fetchPostFeedback(requestObject)
     }
@@ -101,6 +101,3 @@ class GlobalFooter extends Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GlobalFooter);
-
-
-  

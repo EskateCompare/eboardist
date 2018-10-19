@@ -8,6 +8,10 @@ export default class CompareProducts extends Component {
     const { fetchFilter, fetchProducts, filterState } = this.props;
     document.title = "eboardist | Compare Electric Skateboards"
 
+
+    window.scrollTo(0, 0);
+
+
     fetchProducts(filterState);
     fetchFilter(filterState);
   }
